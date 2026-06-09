@@ -1,15 +1,8 @@
-import {
-  Wand2,
-  Upload,
-  BarChart2,
-  Activity,
-  BarChart,
-  Grape,
-} from "lucide-react";
-import dashboardImg from "../../assets/home/productshowcase.png";
-import { PiGraph } from "react-icons/pi";
+import { Wand2, Upload, BarChart2, Activity } from "lucide-react";
 
-const features = [
+import dashboardImg from "../../assets/home/productshowcase.png";
+
+const FEATURES = [
   {
     icon: Wand2,
     title: "Template Builder",
@@ -38,73 +31,58 @@ const features = [
 
 export default function ProductShowcase() {
   return (
-    <section
-      className="w-full flex items-center justify-center px-4 sm:px-6 lg:px-12 py-12 sm:py-16 lg:py-24"
-      style={{ backgroundColor: "#F0F0F8" }}
-    >
-      <div className="max-w-6xl w-full mx-auto flex flex-col lg:flex-row items-center gap-10 sm:gap-14 lg:gap-16">
-        {/* LEFT COLUMN */}
-        <div className="flex-1 w-full lg:max-w-xl text-center lg:text-left">
-          {/* Label */}
-          <p
-            className="text-xs font-bold tracking-widest uppercase mb-4"
-            style={{ color: "#6C3BFF" }}
-          >
+    <section className="w-full bg-[#F0F0F8] px-4 py-12 sm:px-6 sm:py-16 lg:px-12 lg:py-24">
+      <div className="mx-auto flex max-w-6xl flex-col items-center gap-10 lg:flex-row lg:gap-16">
+        {/* Left Content */}
+        <div className="flex-1 text-center lg:max-w-xl lg:text-left">
+          <p className="mb-4 text-xs font-bold uppercase tracking-widest text-[#6C3BFF]">
             Product Showcase
           </p>
 
-          {/* Heading */}
-          <h1
-            className="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight mb-4 sm:mb-5"
-            style={{ color: "#0D0D2B" }}
-          >
+          <h2 className="mb-5 text-3xl font-extrabold leading-tight text-[#0D0D2B] sm:text-4xl md:text-5xl">
             Powerful dashboard
             <br />
             built for scale
-          </h1>
+          </h2>
 
-          {/* Subheading */}
-          <p className="text-sm sm:text-base text-gray-500 mb-8 sm:mb-10 leading-relaxed max-w-md mx-auto lg:mx-0">
+          <p className="mx-auto mb-8 max-w-md text-sm leading-relaxed text-gray-500 sm:mb-10 sm:text-base lg:mx-0">
             Everything you need to run professional marketing campaigns is right
             at your fingertips.
           </p>
 
-          {/* Features */}
-          <div className="flex flex-col gap-6 sm:gap-8 text-left">
-            {features.map(({ icon: Icon, title, description }) => (
-              <div key={title} className="flex items-start gap-4 sm:gap-5">
-                <div
-                  className="flex-shrink-0 w-10 h-10 sm:w-11 sm:h-11 rounded-xl flex items-center justify-center"
-                  style={{ backgroundColor: "#EDE8F8" }}
-                >
+          <div className="space-y-6 text-left sm:space-y-8">
+            {FEATURES.map(({ icon: Icon, title, description }) => (
+              <article key={title} className="flex items-start gap-4 sm:gap-5">
+                <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl bg-[#EDE8F8] sm:h-11 sm:w-11">
                   <Icon
                     size={18}
-                    style={{ color: "#6C3BFF" }}
                     strokeWidth={1.8}
+                    className="text-[#6C3BFF]"
                   />
                 </div>
+
                 <div>
-                  <h3
-                    className="text-sm sm:text-base font-bold mb-1"
-                    style={{ color: "#0D0D2B" }}
-                  >
+                  <h3 className="mb-1 text-sm font-bold text-[#0D0D2B] sm:text-base">
                     {title}
                   </h3>
-                  <p className="text-xs sm:text-sm text-gray-500 leading-relaxed">
+
+                  <p className="text-xs leading-relaxed text-gray-500 sm:text-sm">
                     {description}
                   </p>
                 </div>
-              </div>
+              </article>
             ))}
           </div>
         </div>
 
-        {/* RIGHT COLUMN — Dashboard Image */}
-        <div className="flex-1 w-full flex justify-center lg:justify-end items-center">
+        {/* Right Image */}
+        <div className="flex w-full flex-1 items-center justify-center lg:justify-end">
           <img
             src={dashboardImg}
             alt="Campaign Analytics Dashboard"
-            className="w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl h-auto object-contain drop-shadow-xl"
+            loading="lazy"
+            decoding="async"
+            className="h-auto w-full max-w-sm object-contain drop-shadow-xl sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl"
           />
         </div>
       </div>

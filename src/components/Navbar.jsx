@@ -48,7 +48,7 @@ function Navbar() {
           <div className="selectCity min-w-[50px] max-w-[210px] relative py-2 rounded-lg px-4 cursor-pointer">
             <div className="flex lg:gap-1 items-center justify-center text-xs sm:text-base font-bold text-[#5E23DC] lg:p-1">
               <PiMapPinAreaBold className="w-4 h-4 sm:w-6 sm:h-6 mr-1" />
-              <span className="block whitespace-nowrap font-bold text-[#5E23DC]">
+              <span className="block whitespace-nowrap font-semibold text-[#5E23DC]">
                 Select City
               </span>
               <RiArrowDropDownLine className="w-5 h-5 sm:w-6 sm:h-6 text-[#5E23DC]" />

@@ -1,39 +1,43 @@
-import React from "react";
+import React, { memo } from "react";
 
-const statsData = [
+const STATS = [
   {
+    id: "businesses",
     value: "500+",
     label: "Businesses Trust Reparv",
   },
   {
+    id: "messages",
     value: "10M+",
     label: "Messages Delivered",
   },
   {
+    id: "delivery",
     value: "99.9%",
     label: "Delivery Rate",
   },
 ];
 
-const Stats = () => {
+const Stats = memo(() => {
   return (
-    <section className="w-full bg-[#FFFFFF] py-12">
-      <div className="max-w-6xl mx-auto px-4">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 text-center">
-          {statsData.map((stat, index) => (
-            <div key={index} className="flex flex-col items-center">
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900">
-                {stat.value}
+    <section className="w-full bg-white py-12">
+      <div className="mx-auto max-w-6xl px-4">
+        <div className="grid grid-cols-1 gap-8 text-center sm:grid-cols-2 md:grid-cols-3">
+          {STATS.map(({ id, value, label }) => (
+            <article key={id} className="flex flex-col items-center">
+              <h2 className="text-4xl font-bold text-gray-900 md:text-5xl">
+                {value}
               </h2>
-              <p className="mt-2 text-gray-600 text-base md:text-lg">
-                {stat.label}
-              </p>
-            </div>
+
+              <p className="mt-2 text-base text-gray-600 md:text-lg">{label}</p>
+            </article>
           ))}
         </div>
       </div>
     </section>
   );
-};
+});
+
+Stats.displayName = "Stats";
 
 export default Stats;
